@@ -1,14 +1,14 @@
-# def even(n):
-#     if n%2==0:
-#         return 'even'
-#     else:
-#         return 'odd'
+def even(n):
+    if n%2==0:
+        return 'even'
+    else:
+        return 'odd'
 
-# def main():
-#     n = int(input("Enetr a value: "))
-#     print("Number is : ",even(n))
+def main():
+    n = int(input("Enetr a value: "))
+    print("Number is : ",even(n))
 
-# main()
+main()
 
 def even_num(n):
     count = 0
@@ -22,17 +22,17 @@ def main():
     n = int(input("Enter a value: "))
     print("Even numbers: ",even_num(n))
 
-# def even(n):
-#     if n%2==0:
-#         return 'even'
-#     else:
-#         return 'odd'
+def even(n):
+    if n%2==0:
+        return 'even'
+    else:
+        return 'odd'
 
-# def main():
-#     n = int(input("Enetr a value: "))
-#     print("Number is : ",even(n))
+def main():
+    n = int(input("Enetr a value: "))
+    print("Number is : ",even(n))
 
-# main()
+main()
 
 def even_num(n):
     count = 0
