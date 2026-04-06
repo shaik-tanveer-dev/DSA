@@ -1,16 +1,14 @@
 class node:
-    def _init_(self,data):
+    def __init__(self,data):
         self.prev = None
         self.data = data
         self.next = None
 
 class doublylinkedlist:
-    def _init_(self):
+    def __init__(self):
         self.head=None
 
-    #inserting operations
-    #inserting at beginning
-    def insert_begin(self,data): # o(1)
+    def insert_begin(self,data):
         new_node=node(data)
 
         if self.head:
@@ -47,12 +45,10 @@ class doublylinkedlist:
 
         if temp.next:
             temp.next.prev=new_node
-            new_node.prev=temp.next
-
-        temp.next=new_node
+        
+        new_node.next=temp.next
         new_node.prev=temp
-
-    #Deletion
+        temp.next=new_node
 
     def delete_begin(self):
         if self.head is None:
@@ -63,25 +59,23 @@ class doublylinkedlist:
         if self.head:
             self.head.prev = None
     
-    def delete_end(self):  #o(n)
+    def delete_end(self):
         if self.head is None:
             return
 
         if self.head.next is None:
             self.head = None
             return
+
         temp = self.head
         while temp.next:
             temp = temp.next
         temp.prev.next = None
 
     def delete_value(self, key):
-        if self.head is None:
-            return
         temp = self.head
         while temp:
             if temp.data == key:
-
                 if temp.prev:
                     temp.prev.next = temp.next
                 else:
@@ -89,6 +83,88 @@ class doublylinkedlist:
                 
                 if temp.next:
                     temp.next.prev = temp.prev
-
                 return
             temp = temp.next
+
+    def delete_at_position(self,pos):
+        if self.head is None:
+            return
+        
+        if pos==0:
+            self.delete_begin()
+            return
+        
+        temp=self.head
+        for _ in range(pos):
+            if temp is None:
+                return
+            temp=temp.next
+
+        if temp.prev:
+            temp.prev.next=temp.next
+        if temp.next:
+            temp.next.prev=temp.prev
+
+    def get(self,pos):
+        temp=self.head
+        for _ in range(pos):
+            if temp is None:
+                return None
+            temp=temp.next 
+        return temp.data if temp else None
+    
+    def search(self,key):
+        temp=self.head
+        while temp:
+            if temp.data==key:
+                return True
+            temp=temp.next
+        return False
+    
+    def update(self,pos,value):
+        temp=self.head
+        for _ in range(pos):
+            if temp is None:
+                return
+            temp=temp.next
+
+        if temp:
+            temp.data=value
+    
+    def update_value(self,old,new):
+        temp=self.head
+        while temp:
+            if temp.data == old:
+                temp.data = new
+                return
+            temp = temp.next
+
+    def display(self):
+        temp=self.head
+        while temp:
+            print(temp.data,end="<->")
+            temp=temp.next
+        print("None")
+
+
+# Testing
+dll = doublylinkedlist()
+
+dll.insert_begin(10)
+dll.insert_begin(5)
+dll.insert_begin(20)
+dll.insert_begin(30)
+
+dll.display()
+
+dll.insert_at_pos(2,15)
+dll.display()
+
+print(dll.get(2))
+print(dll.search(20))
+
+dll.delete_value(15)
+dll.display()
+
+dll.update(1,99)
+dll.display()
