@@ -89,12 +89,20 @@ class doublylinkedlist:
     def delete_at_position(self,pos):
         if self.head is None:
             return
+<<<<<<< HEAD
         
+=======
+        temp=self.head
+
+>>>>>>> 6bbfb3b (Circular_linkedlist)
         if pos==0:
             self.delete_begin()
             return
         
+<<<<<<< HEAD
         temp=self.head
+=======
+>>>>>>> 6bbfb3b (Circular_linkedlist)
         for _ in range(pos):
             if temp is None:
                 return
@@ -103,36 +111,68 @@ class doublylinkedlist:
         if temp.prev:
             temp.prev.next=temp.next
         if temp.next:
+<<<<<<< HEAD
             temp.next.prev=temp.prev
 
     def get(self,pos):
         temp=self.head
+=======
+            temp.prev.next=temp.prev
+
+    #access operations
+    #get by position
+    def get(self,pos):
+        temp=self.head
+
+>>>>>>> 6bbfb3b (Circular_linkedlist)
         for _ in range(pos):
             if temp is None:
                 return None
             temp=temp.next 
         return temp.data if temp else None
     
+<<<<<<< HEAD
     def search(self,key):
         temp=self.head
+=======
+    #search
+    def search(self,key):
+        temp=self.head
+
+>>>>>>> 6bbfb3b (Circular_linkedlist)
         while temp:
             if temp.data==key:
                 return True
             temp=temp.next
         return False
     
+<<<<<<< HEAD
     def update(self,pos,value):
         temp=self.head
         for _ in range(pos):
             if temp is None:
                 return
             temp=temp.next
+=======
+    #update by position
+    def update(self,pos,value):
+        temp=self.head
+
+        for _ in range(pos):
+            if temp is None:
+                return
+        temp=temp.next
+>>>>>>> 6bbfb3b (Circular_linkedlist)
 
         if temp:
             temp.data=value
     
     def update_value(self,old,new):
         temp=self.head
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6bbfb3b (Circular_linkedlist)
         while temp:
             if temp.data == old:
                 temp.data = new
@@ -145,9 +185,13 @@ class doublylinkedlist:
             print(temp.data,end="<->")
             temp=temp.next
         print("None")
+<<<<<<< HEAD
 
 
 # Testing
+=======
+    
+>>>>>>> 6bbfb3b (Circular_linkedlist)
 dll = doublylinkedlist()
 
 dll.insert_begin(10)
@@ -159,6 +203,7 @@ dll.display()
 
 dll.insert_at_pos(2,15)
 dll.display()
+<<<<<<< HEAD
 
 print(dll.get(2))
 print(dll.search(20))
@@ -166,5 +211,11 @@ print(dll.search(20))
 dll.delete_value(15)
 dll.display()
 
+=======
+print(dll.get(2))
+print(dll.search(20))
+dll.delete_value(15)
+dll.display()
+>>>>>>> 6bbfb3b (Circular_linkedlist)
 dll.update(1,99)
 dll.display()
