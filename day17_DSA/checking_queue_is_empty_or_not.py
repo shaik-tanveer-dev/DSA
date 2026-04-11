@@ -8,4 +8,3 @@ if not q:
     print("Queue is empty")
 else:
     print("Queue: ", q)
-
