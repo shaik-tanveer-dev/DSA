@@ -1,16 +1,3 @@
-# 1)circular queue is a liner data structure that follows FIFO but with a twist
-# 2)Last position is connected back to the first position
-# 3)It forms a circular(ring structure)
-# 4)Instead of moving in one direction like a normal queue,it wraps around by using modul(%)
-# -->How circular queue works:
-# -> It uses two pointers:
-#  front ->first element
-#  real ->last element
-# key formula:
-# real = (real + 1) % size
-# front = (front + 1) % size
-
-
 class circularqueue:
     def __init__(self, size):
         self.size = size
